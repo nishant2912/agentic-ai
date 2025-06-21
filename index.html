@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of Agentic AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #6366f1;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        .dark {
+            --primary: #818cf8;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --card-bg: #1e293b;
+            --border: #374151;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 8px);
+            background-color: var(--border);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            width: 48px;
+            height: 24px;
+            border-radius: 12px;
+            background-color: var(--bg-secondary);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .dark .theme-toggle::after {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        <header class="sticky top-0 z-10 bg-opacity-90 backdrop-blur-sm border-b border-solid border-opacity-20" style="border-color: var(--border);">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-xl md:text-2xl font-bold">Agentic AI</h1>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm hidden md:inline" id="theme-label">Light Mode</span>
+                    <div class="theme-toggle" id="theme-toggle" role="button" aria-label="Toggle dark mode"></div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-8 flex-grow">
+            <section class="mb-16">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">The Rise of Agentic AI</h2>
+                    <p class="text-lg md:text-xl" style="color: var(--text-secondary);">
+                        From simple chatbots to autonomous systems that reason, plan, and act. This interactive guide explores the evolution of AI agents, the powerful models that drive them, and the tools being built for this new frontier of software development.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">What is an AI Agent?</h2>
+                    <p class="mb-6" style="color: var(--text-secondary);">
+                        An AI Agent is an autonomous system designed to perceive its environment, make decisions, and take actions to achieve specific goals. This section breaks down the core components that form the "mind" and "body" of an agent.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mb-4">Core Components</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2 text-primary" style="color: var(--primary);">Perception</h4>
+                            <p style="color: var(--text-secondary);">How the agent takes in information. This can be text from a user, data from an API, visual information from an image, or readings from sensors. It's the agent's "senses."</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2 text-primary" style="color: var(--primary);">Planning</h4>
+                            <p style="color: var(--text-secondary);">The "brain" of the agent. It breaks down a large goal into smaller, manageable steps. Powered by LLMs, this allows agents to devise sophisticated strategies to solve complex problems.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2 text-primary" style="color: var(--primary);">Action</h4>
+                            <p style="color: var(--text-secondary);">How the agent interacts with its environment. This involves executing the planned steps by using "tools" like calling an API, running code, or sending an email. It's the agent's "hands."</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2 text-primary" style="color: var(--primary);">Memory</h4>
+                            <p style="color: var(--text-secondary);">Essential for learning and context. Short-term memory tracks the current task, while long-term memory stores past experiences, allowing the agent to improve over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">LLM Release Timeline</h2>
+                    <p class="mb-6" style="color: var(--text-secondary);">
+                        Agent capabilities are directly tied to the power of the underlying Large Language Models. The timeline below highlights the key releases that have fueled the agentic AI revolution.
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full mb-8">
+                            <thead>
+                                <tr class="border-b" style="border-color: var(--border);">
+                                    <th class="py-3 px-4 text-left">Date</th>
+                                    <th class="py-3 px-4 text-left">Company</th>
+                                    <th class="py-3 px-4 text-left">Model/Family</th>
+                                    <th class="py-3 px-4 text-left">Key Innovation / Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Mar 2023</td>
+                                    <td class="py-3 px-4">OpenAI</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">GPT-4</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">Set a new state-of-the-art for reasoning and multimodality, becoming the gold standard for complex tasks.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Dec 2023</td>
+                                    <td class="py-3 px-4">Google</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Gemini 1.0 Family</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">Google's response to GPT-4, introducing a family of models (Pro, Ultra, Nano) built to be natively multimodal.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Mar 2024</td>
+                                    <td class="py-3 px-4">Anthropic</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Claude 3 Family</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">Established Anthropic as a frontier competitor. The top-tier Opus model surpassed GPT-4 on several key benchmarks.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">May 2024</td>
+                                    <td class="py-3 px-4">OpenAI</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">GPT-4o</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">The "Omni" model focused on usability, offering GPT-4 level intelligence with significantly faster speeds and lower cost.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Q1/Q2 2024</td>
+                                    <td class="py-3 px-4">Google</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Gemini 1.5 Pro & Flash</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">Introduced a massive 1 million token context window, allowing for the analysis of entire codebases in a single prompt.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Jun 2024</td>
+                                    <td class="py-3 px-4">Anthropic</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Claude 3.5 Sonnet</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">A breakthrough release that outperformed its own top-tier Opus model in key areas like coding, but at the speed and price of a mid-tier model.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Feb 2025</td>
+                                    <td class="py-3 px-4">Anthropic</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Claude 3.7 Sonnet</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">Introduced "hybrid reasoning," responding instantly to simple queries while dedicating more "thought" to complex problems.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Apr 2025</td>
+                                    <td class="py-3 px-4">OpenAI</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">GPT 4.1</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">An incremental update focusing on reducing hallucinations and improving factuality, making agents more reliable.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">May 2025</td>
+                                    <td class="py-3 px-4">OpenAI</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">OpenAI 03</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">A new flagship model series, completely rebuilt for agentic workflows with "native tool use" and persistent memory.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">May 2025</td>
+                                    <td class="py-3 px-4">Anthropic</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Claude 4</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">A new generation explicitly designed for AI agents, with Opus launched as the world's best coding model.</td>
+                                </tr>
+                                <tr class="timeline-item">
+                                    <td class="py-3 px-4">Q2 2025</td>
+                                    <td class="py-3 px-4">Google</td>
+                                    <td class="py-3 px-4 font-medium" style="color: var(--primary);">Gemini 2.5 Family</td>
+                                    <td class="py-3 px-4" style="color: var(--text-secondary);">The next evolution of Google's models, branded as "thinking models" with enhanced reasoning.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-16">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6">The Agentic Developer's Toolkit</h2>
+                    <p class="mb-6" style="color: var(--text-secondary);">
+                        As models grow more powerful, so do the tools for building with them. This is a survey of the new class of AI-native IDEs and platforms that are changing how developers write software.
+                    </p>
+
+                    <h3 class="text-xl font-semibold mb-4">Editors</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Cursor</h4>
+                            <p style="color: var(--text-secondary);">An AI-first code editor deeply integrated with a GPT-4 level chat, enabling natural language refactoring, debugging, and generation within the IDE.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Windsurf</h4>
+                            <p style="color: var(--text-secondary);">An advanced agentic code editor that understands developer intent across an entire project, automatically making changes, running code, and debugging.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Agents</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Claude Code</h4>
+                            <p style="color: var(--text-secondary);">Anthropic's tool for agentic coding, designed to understand an entire codebase and perform complex, multi-file edits through natural language commands.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Jules (Google)</h4>
+                            <p style="color: var(--text-secondary);">An asynchronous coding agent that takes high-level tasks, works on them in the background, and presents a plan and code diff for approval.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Cline</h4>
+                            <p style="color: var(--text-secondary);">An agent with deep architectural awareness, designed for large, complex, and multi-repository codebases. It excels at high-level refactoring and ensuring consistency.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Roo</h4>
+                            <p style="color: var(--text-secondary);">A highly customizable agent that can adopt different "personas" like a QA engineer or security auditor to assist with multiple roles in the development lifecycle.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mb-4">Platforms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">GitHub Copilot</h4>
+                            <p style="color: var(--text-secondary);">Powered by OpenAI's Codex, it established the paradigm of AI code assistance, translating comments into functional code and paving the way for all subsequent tools.</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-semibold mb-2" style="color: var(--primary);">Augment</h4>
+                            <p style="color: var(--text-secondary);">A platform that indexes a project's entire codebase to provide a highly context-aware AI assistant, acting like an expert pair programmer.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="border-t py-6" style="border-color: var(--border);">
+            <div class="container mx-auto px-4 text-center">
+                <p style="color: var(--text-secondary);">© 2024 The Rise of Agentic AI</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('theme-toggle');
+            const themeLabel = document.getElementById('theme-label');
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // Initialize theme based on user preference
+            if (prefersDarkMode) {
+                document.documentElement.classList.add('dark');
+                themeLabel.textContent = 'Dark Mode';
+            }
+
+            // Toggle theme when clicked
+            toggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                const isDark = document.documentElement.classList.contains('dark');
+                themeLabel.textContent = isDark ? 'Dark Mode' : 'Light Mode';
+
+                // Add a subtle animation to the page
+                document.body.style.opacity = '0.98';
+                setTimeout(() => {
+                    document.body.style.opacity = '1';
+                }, 150);
+            });
+
+            // Add hover effect to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.borderColor = 'var(--primary)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.borderColor = 'var(--border)';
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'953617d1705485df',t:'MTc1MDUzNjAzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
